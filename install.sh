@@ -16,14 +16,19 @@ else
 fi
 
 echo "🧠 Plantando a persona da Manu..."
-mkdir -p "$HOME/.hermes"
+mkdir -p "$HOME/.hermes/team"
 curl -fsSL https://raw.githubusercontent.com/thiagomurtasoares/manu-lite/main/SOUL.md -o "$HOME/.hermes/SOUL.md"
 curl -fsSL https://raw.githubusercontent.com/thiagomurtasoares/manu-lite/main/AGENTS.md -o "$HOME/.hermes/AGENTS.md"
+
+echo "👥 Plantando o time (versão simples)..."
+for membro in giovana-ops thiago-sdr leonardo-dev rafael-copy mel-social dudu-trafego; do
+  curl -fsSL "https://raw.githubusercontent.com/thiagomurtasoares/manu-lite/main/team/${membro}.md" -o "$HOME/.hermes/team/${membro}.md"
+done
 
 echo ""
 echo "✅ Pronto! Agora falta só:"
 echo "   1. Rodar 'hermes setup' pra configurar sua chave de API e o bot do Telegram"
 echo "   2. Rodar 'hermes gateway install' pra deixar ela rodando sempre"
 echo ""
-echo "Gostou e quer o pacote completo (time de especialistas, voz, instalador"
-echo "de 1 clique, suporte)? -> https://guildahub.com"
+echo "Gostou e quer o time de verdade (orquestração automática, voz,"
+echo "instalador de 1 clique, suporte)? -> https://guildahub.com"
